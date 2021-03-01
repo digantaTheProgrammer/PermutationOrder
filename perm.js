@@ -14,10 +14,10 @@ export function genExamplePerm(factors, n) {
 }
 
 export function numPerm(factors, n) {
-  let ret = Math.pow(2, factors.length);
+  let ret = 1;
   let k = 0;
   for (let i in factors) {
-    ret *= C(n - k, factors[i]);
+    ret *= P(n - k, factors[i]);
     k += factors[i];
   }
   return ret;
@@ -53,12 +53,11 @@ function permute(perm, indexes) {
   return ret;
 }
 
-function C(n, r) {
-  let c = 1,
+function P(n, r) {
+  let p = 1,
     k = 0;
-  while (k < r) c *= n - k++;
-  while (r > 1) c /= r--;
-  return c;
+  while (k < r) p *= n - k++;
+  return p;
 }
 function genPermute(perm, cycledir, si, len, indexes) {
   let ei = si + (len - 1);
