@@ -17,7 +17,7 @@ export function numPerm(factors, n) {
   let ret = 1;
   let k = 0;
   for (let i in factors) {
-    ret *= P(n - k, factors[i]);
+    ret *= P(n - k, factors[i])/factors[i];
     k += factors[i];
   }
   return ret;
