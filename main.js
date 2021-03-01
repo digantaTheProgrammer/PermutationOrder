@@ -4,6 +4,7 @@ import {
   numPerm,
   calcPermOrder,
   validatePerm,
+  thPermOrder,
 } from "./perm.js";
 
 function orderCallBack() {
@@ -44,5 +45,19 @@ function calOrderCallBack() {
         i + " -> " + comps.perms[i] + "\n\n";
   }
 }
+
+function thcalOrderCallBack() {
+  let perm = document.getElementById("thperm").value.match(/\d+/g);
+  if (perm.length > 99) {
+    document.getElementById("thpermres").value = "Permutation too long";
+    return;
+  }
+
+  if (!validatePerm(perm)) {
+    document.getElementById("thpermres").value = "Invalid permutation";
+  } else
+    document.getElementById("thpermres").value = "Order : " + thPermOrder(perm);
+}
 window.orderCallBack = orderCallBack;
 window.calOrderCallBack = calOrderCallBack;
+window.thcalOrderCallBack = thcalOrderCallBack;

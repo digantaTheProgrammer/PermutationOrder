@@ -17,7 +17,7 @@ export function numPerm(factors, n) {
   let ret = 1;
   let k = 0;
   for (let i in factors) {
-    ret *= P(n - k, factors[i])/factors[i];
+    ret *= P(n - k, factors[i]) / factors[i];
     k += factors[i];
   }
   return ret;
@@ -96,4 +96,39 @@ export function validatePerm(perm) {
     else if (num[perm[i] - 1] != 0) return false;
     else num[perm[i] - 1] = 1;
   return true;
+}
+
+export function thPermOrder(perm) {
+  let lcm = 1;
+  let nums = [];
+  for (let i in perm) nums.push(0);
+  for (let stri in perm) {
+    let i = parseInt(stri);
+    if (nums[i] != 0) continue;
+    let j = i,
+      n = 0;
+    do {
+      nums[j] = 1;
+      j = perm[j] - 1;
+      n++;
+    } while (j != i);
+    lcm = calcLCM(lcm, n);
+  }
+  return lcm;
+}
+
+function calcLCM(a, b) {
+  let prod = a * b;
+  if (a == 1 || b == 1) return prod;
+  if (a > b) {
+    let t = a;
+    a = b;
+    b = t;
+  }
+  while (b % a != 0) {
+    let t = b % a;
+    b = a;
+    a = t;
+  }
+  return prod / a;
 }

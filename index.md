@@ -66,6 +66,55 @@
       ></textarea>
     </div>
 
+    <div
+      class="container"
+      style="background-color: rgb(151, 221, 123); margin-top: 50px"
+    >
+      <label style="margin-left: auto; color: rgb(96, 118, 62)"
+        >Enter permutation
+      </label>
+      <input
+        style="margin-left: 20px; width: 50%"
+        id="thperm"
+        oninput="this.value = this.value.replace(/^,|[^0-9, ]/g, '')"
+      />
+      <label style="font-weight: lighter; color: rgb(96, 118, 62)"
+        >(upto 99 elements)</label
+      >
+      <button
+        style="
+          display: block;
+          background-color: #d66e57;
+          border: none;
+          color: rgb(255, 255, 255);
+          text-align: center;
+          text-decoration: none;
+          font-size: 12px;
+          border-radius: 5px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+          margin-left: 50px;
+          margin-top: 10px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        "
+        onclick="thcalOrderCallBack();"
+      >
+        Calculate Order
+      </button>
+      <textarea
+        id="thpermres"
+        style="
+          display: block;
+          width: 300px;
+          resize: none;
+          height: 30px;
+          margin-top: 10px;
+        "
+        readonly="true"
+      ></textarea>
+    </div>
+
     <div class="container" style="background-color: teal; margin-top: 50px">
       <label style="margin-left: auto; color: wheat">Enter permutation </label>
       <input
